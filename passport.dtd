@@ -1,0 +1,7 @@
+<!ELEMENT passport (first_name, last_name, patronymic, address, id_number, photo)>
+<!ELEMENT first_name (#PCDATA)>
+<!ELEMENT last_name (#PCDATA)>
+<!ELEMENT patronymic (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT id_number (#PCDATA)>
+<!ELEMENT photo (#PCDATA)>

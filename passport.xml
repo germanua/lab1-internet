@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!DOCTYPE passport SYSTEM "passport.dtd">
+<?xml-stylesheet type="text/css" href="passport.css"?>
+<?xml-stylesheet type="text/xsl" href="passport_transform.xsl"?>
+
+<passport>
+  <first_name>John</first_name>
+  <last_name>Doe</last_name>
+  <patronymic>Ivanovich</patronymic>
+  <address>123 Main Street, Anytown, Country</address>
+  <id_number>ABC123456</id_number>
+  <!-- The photo element contains the URL or file name of the passport photo -->
+  <photo>photo.jpg</photo>
+</passport>

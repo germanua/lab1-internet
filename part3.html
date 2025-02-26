@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Compass Image Map</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .compass-container {
+            text-align: center;
+        }
+
+        .compass-image {
+            /* Ensure the displayed size is exactly 512x512, matching the coords */
+            width: 512px;
+            height: 512px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="compass-container">
+        <h1>Interactive Compass</h1>
+        <p>Click on any direction to see its representation</p>
+
+        <!-- The usemap must match the map's name -->
+        <img src="compass.png"
+             alt="Compass"
+             usemap="#compass-map"
+             class="compass-image"
+             width="512"
+             height="512" />
+
+        <map name="compass-map">
+            <!--
+              Approximate wedge shapes for each direction.
+              Each <area> uses shape="poly" with a set of (x,y) coordinates
+              inside a 512x512 space.
+            -->
+            <!-- North wedge -->
+            <area shape="poly"
+                  coords="265,1, 356,156, 156,156"
+                  href="https://placehold.co/800x600/red/white?text=North"
+                  alt="North"
+                  target="_blank" />
+
+            <!-- East wedge -->
+            <area shape="poly"
+                  coords="356,156, 500,256, 356,356, 256,256"
+                  href="https://placehold.co/800x600/green/white?text=East"
+                  alt="East"
+                  target="_blank" />
+
+            <!-- South wedge -->
+            <area shape="poly"
+                  coords="356,356, 256,500, 156,356, 256,256"
+                  href="https://placehold.co/800x600/blue/white?text=South"
+                  alt="South"
+                  target="_blank" />
+
+            <!-- West wedge -->
+            <area shape="poly"
+                  coords="156,356, 1,256, 156,156, 256,256"
+                  href="https://placehold.co/800x600/yellow/black?text=West"
+                  alt="West"
+                  target="_blank" />
+        </map>
+    </div>
+</body>
+</html>

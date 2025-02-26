@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>XPath Example for Passport XML (JavaScript)</title>
+</head>
+<body>
+    <h2>Passport XML Data via XPath (JavaScript)</h2>
+    <div id="output"></div>
+
+    <script>
+        // Create an XMLHttpRequest to load passport.xml
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "passport.xml", true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    var xmlDoc = xhr.responseXML;
+                    if (!xmlDoc) {
+                        document.getElementById("output").innerHTML = "<p>Error: Unable to parse XML. Check file format and server headers.</p>";
+                        return;
+                    }
+
+                    // Use XPath to select all child nodes of the <passport> element
+                    var xpathResult = xmlDoc.evaluate("/passport/*", xmlDoc, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+                    var outputDiv = document.getElementById("output");
+                    var node = xpathResult.iterateNext();
+
+                    if (!node) {
+                        outputDiv.innerHTML = "<p>No nodes found. Please check that your XML file has a <passport> root with child elements.</p>";
+                    }
+
+                    while (node) {
+                        var para = document.createElement("p");
+                        para.innerHTML = "<strong>" + node.nodeName + ":</strong> " + node.textContent;
+                        outputDiv.appendChild(para);
+                        node = xpathResult.iterateNext();
+                    }
+                } else {
+                    document.getElementById("output").innerHTML = "<p>Error loading XML file: " + xhr.status + "</p>";
+                }
+            }
+        };
+        xhr.send();
+    </script>
+</body>
+</html>
